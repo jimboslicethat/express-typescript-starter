@@ -1,13 +1,15 @@
+import * as dotenv from 'dotenv'
 import * as express from 'express'
 
+import routes from './routes'
+
+dotenv.config()
 const app = express()
 
-const PORT = 3000
+const { PORT, API_BASE_URL } = process.env
+
+app.use(API_BASE_URL, routes)
 
 app.listen(PORT, () => {
   console.log(`App is listening on ${PORT}`)
-})
-
-app.get('/', (_req, res) => {
-  res.send('Hello World!')
 })
