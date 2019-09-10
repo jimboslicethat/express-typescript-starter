@@ -10,3 +10,5 @@ services:
       - 8080
     volumes:
       - ./src:/opt/app/src
+  environment:
+    - LOG_DIR="/var/log"
